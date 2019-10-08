@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {StarwarsApiService} from "../../services/starwars-api.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-planet',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetComponent implements OnInit {
 
-  constructor() { }
+  private loading: boolean = false;
+  // private results: Observable<Response[]>;
+
+  constructor(private starwarsAPIService:StarwarsApiService) { }
 
   ngOnInit() {
+    this.getPlanets();
+  }
+
+  getPlanets() {
+    this.loading = true;
+
   }
 
 }

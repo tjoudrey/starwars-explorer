@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {StarwarsApiService} from "../../services/starwars-api.service";
 
 @Component({
   selector: 'app-movie',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
 
-  constructor() { }
+  constructor(private starwarsAPIService: StarwarsApiService) { }
 
   ngOnInit() {
   }
