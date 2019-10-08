@@ -13,6 +13,7 @@ import { MainComponent } from './views/main/main.component';
 import { PeopleComponent } from './views/people/people.component';
 import { PlanetComponent } from './views/planet/planet.component';
 import { MovieComponent } from './views/movie/movie.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MovieComponent } from './views/movie/movie.component';
     MatSliderModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
 
   ],
   providers: [],

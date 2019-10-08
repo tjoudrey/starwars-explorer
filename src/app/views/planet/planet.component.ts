@@ -20,7 +20,7 @@ export class PlanetComponent implements OnInit {
 
   getPlanets() {
     this.loading = true;
-
+    this.starwarsAPIService.loadPlanets();
   }
 
 }
