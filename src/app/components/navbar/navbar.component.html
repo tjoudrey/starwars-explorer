@@ -1,9 +1,10 @@
 <mat-menu #appMenu="matMenu">
   <ng-template matMenuContent>
-    <button mat-menu-item routerLink="movies">Movies</button>
-    <button mat-menu-item routerLink="people">People</button>
-    <button mat-menu-item routerLink="planets">Planets</button>
+    <button mat-menu-item>Settings</button>
+    <button mat-menu-item>Help</button>
   </ng-template>
 </mat-menu>
 
-<button mat-button [matMenuTriggerFor]="appMenu">Starwars Explorer</button>
+<button mat-icon-button [matMenuTriggerFor]="appMenu">
+  <mat-icon>more_vert</mat-icon>
+</button>
