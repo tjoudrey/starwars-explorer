@@ -11,8 +11,6 @@ export class  Person {
   // films: string[];
 
   constructor(data) {
-    console.log(data.name)
-
     this.name = data.name;
     this.height = data.height;
     this.mass = data.mass;
