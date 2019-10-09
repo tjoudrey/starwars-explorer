@@ -9,10 +9,7 @@ import {Planet} from "../../models/planet";
   styleUrls: ['./planet.component.scss']
 })
 export class PlanetComponent implements OnInit {
-
-  private loading: boolean = false;
   planets: Observable<Planet[]>;
-  // private results: Observable<Response[]>;
 
   constructor(private starwarsAPIService:StarwarsApiService) { }
 
@@ -20,6 +17,4 @@ export class PlanetComponent implements OnInit {
     this.planets = this.starwarsAPIService.planets;
     this.starwarsAPIService.loadPlanets();
   }
-
-
 }

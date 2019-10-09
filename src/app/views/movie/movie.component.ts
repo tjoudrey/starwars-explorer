@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {StarwarsApiService} from "../../services/starwars-api.service";
 import {Observable} from "rxjs";
-import {Person} from "../../models/person";
 import {Movie} from "../../models/movie";
 
 @Component({
@@ -10,7 +9,6 @@ import {Movie} from "../../models/movie";
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
-  private loading: boolean = false;
   movies: Observable<Movie[]>;
 
   constructor(private starwarsAPIService:StarwarsApiService) { }

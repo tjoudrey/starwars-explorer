@@ -4,8 +4,6 @@ export class Movie {
   director: string;
   producer: string;
   release_date: string;
-  // characters: string[];
-  // planets: string[];
 
   constructor(data) {
     this.title = data.title;

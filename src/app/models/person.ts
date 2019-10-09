@@ -7,17 +7,15 @@ export class  Person {
   eye_colour: string;
   birth_year: string;
   gender: string;
-  // homeworld: string;
-  // films: string[];
 
   constructor(data) {
     this.name = data.name;
     this.height = data.height;
     this.mass = data.mass;
-    this.hair_colour = data.hair_colour;
-    this.skin_colour = data.skin_colour;
-    this.eye_colour = data.mass;
-    this.birth_year = data.mass;
-    this.gender = data.mass;
+    this.hair_colour = data.hair_color;
+    this.skin_colour = data.skin_color;
+    this.eye_colour = data.eye_colour;
+    this.birth_year = data.birth_year;
+    this.gender = data.gender;
   }
 }

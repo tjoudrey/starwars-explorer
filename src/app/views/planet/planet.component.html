@@ -1,3 +1,3 @@
 <div *ngFor="let planet of planets | async">
-  {{planet.name}}
+  <app-planet-card [planet]="planet"></app-planet-card>
 </div>

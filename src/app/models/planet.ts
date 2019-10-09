@@ -8,8 +8,6 @@ export class Planet {
   climate: string;
   terrain: string;
   surface_water: string;
-  // residents: string[];
-  // films: string[];
 
   constructor(data) {
     this.name = data.name;

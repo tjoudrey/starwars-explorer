@@ -33,103 +33,57 @@ export class StarwarsApiService {
 
   constructor(private http: HttpClient) { }
 
-  loadPlanets() {
-    if(this.planetsLoaded === false && this.planetsInProgress === false){
-      this.planetsInProgress = true;
-    this.http.get('https://swapi.co/api/planets/').subscribe(data => {
-      for (let i in (data as any).results) {
-        let p: Planet = new Planet((data as any).results[i]);
-        this.planetDataStore.planets.push(p);
-      }
-      this._planets.next(Object.assign({}, this.planetDataStore).planets);
-      if((data as any).next) {
-        this.loadPlanetsCont((data as any).next);
-      }
-    })
+  loadPlanets(target: string = 'https://swapi.co/api/planets/') {
+    if(this.planetsLoaded === false && this.planetsInProgress === false) {
+      this.http.get(target).subscribe(data => {
+        for (let i in (data as any).results) {
+          let planet: Planet = new Planet((data as any).results[i]);
+          this.planetDataStore.planets.push(planet);
+        }
+        this._planets.next(Object.assign({}, this.planetDataStore).planets);
+        if ((data as any).next) {
+          this.loadPlanets((data as any).next);
+        } else {
+          this.planetsLoaded = true;
+          this.planetsInProgress = false;
+        }
+      })
     }
   }
 
-  private loadPlanetsCont(next: string) {
-    this.http.get(next).subscribe(data => {
-      for (let i in (data as any).results) {
-        let p: Planet = new Planet((data as any).results[i]);
-        this.planetDataStore.planets.push(p);
-      }
-      this._planets.next(Object.assign({}, this.planetDataStore).planets);
-      if((data as any).next) {
-        this.loadPlanetsCont((data as any).next);
-      } else {
-        this.planetsLoaded = true;
-        this.planetsInProgress = false;
-      }
-    })
-  }
-
-  loadPeople() {
+  loadPeople(target: string = 'https://swapi.co/api/people/') {
     if(this.peopleLoaded === false && this.peopleInProgress === false) {
-      this.peopleInProgress = true;
-      this.http.get('https://swapi.co/api/people/').subscribe(data => {
+      this.http.get(target).subscribe(data => {
         for (let i in (data as any).results) {
-          let p: Person = new Person((data as any).results[i]);
-          this.peopleDataStore.people.push(p);
+          let person: Person = new Person((data as any).results[i]);
+          this.peopleDataStore.people.push(person);
         }
         this._people.next(Object.assign({}, this.peopleDataStore).people);
         if ((data as any).next) {
-          this.loadPeopleCont((data as any).next);
+          this.loadPeople((data as any).next);
+        } else {
+          this.peopleLoaded = true;
+          this.peopleInProgress = false;
         }
       })
     }
   }
 
-  private loadPeopleCont(next: string) {
-    this.http.get(next).subscribe(data => {
-      for (let i in (data as any).results) {
-        let p: Person = new Person((data as any).results[i]);
-        this.peopleDataStore.people.push(p);
-      }
-      this._people.next(Object.assign({}, this.peopleDataStore).people);
-      if((data as any).next) {
-        this.loadPeopleCont((data as any).next);
-      } else {
-        this.peopleLoaded = true;
-        this.peopleInProgress = false;
-      }
-    })
-  }
-
-  loadMovies() {
+  loadMovies(target: string = 'https://swapi.co/api/films/') {
     if(this.moviesLoaded === false && this.moviesInProgress === false) {
-      this.http.get('https://swapi.co/api/films/').subscribe(data => {
+      this.http.get(target).subscribe(data => {
         for (let i in (data as any).results) {
-          let m: Movie = new Movie((data as any).results[i]);
-          this.movieDataStore.movies.push(m);
+          let movie: Movie = new Movie((data as any).results[i]);
+          this.movieDataStore.movies.push(movie);
         }
         this._movies.next(Object.assign({}, this.movieDataStore).movies);
         if ((data as any).next) {
-          this.loadMoviesCont((data as any).next);
+          this.loadMovies((data as any).next);
         } else {
           this.moviesLoaded = true;
-          this.moviesInProgress = false
+          this.moviesInProgress = false;
         }
       })
     }
   }
-
-  //Thanks to disney this function will be needed sooner than later
-  private loadMoviesCont(next: string) {
-    this.http.get(next).subscribe(data => {
-      for (let i in (data as any).results) {
-        let m: Movie = new Movie((data as any).results[i]);
-        this.movieDataStore.movies.push(m);
-      }
-      this._people.next(Object.assign({}, this.peopleDataStore).people);
-      if((data as any).next) {
-        this.loadMoviesCont((data as any).next);
-      } else {
-        this.moviesLoaded = true;
-        this.moviesInProgress = false
-      }
-    })
-  }
-
 }
