@@ -3,6 +3,7 @@ import {Movie} from "../../models/movie";
 import {MatDialog} from "@angular/material/dialog";
 import {PersonDialogComponent} from "../person-dialog/person-dialog.component";
 import {MovieDialogComponent} from "../movie-dialog/movie-dialog.component";
+import {DialogService} from "../../services/dialog.service";
 
 @Component({
   selector: 'app-movie-card',
@@ -14,15 +15,8 @@ export class MovieCardComponent implements OnInit {
   @Input()
   movie: Movie;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialogService: DialogService) { }
 
   ngOnInit() {
-  }
-
-  openDialog(movie: Movie) {
-    const dialogRef = this.dialog.open(MovieDialogComponent, {
-      width: '250px',
-      data: movie
-    })
   }
 }

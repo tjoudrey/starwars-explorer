@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Person} from "../../models/person";
 import {MatDialog} from "@angular/material/dialog";
 import {PersonDialogComponent} from "../person-dialog/person-dialog.component";
+import {DialogService} from "../../services/dialog.service";
 
 @Component({
   selector: 'app-person-card',
@@ -13,16 +14,8 @@ export class PersonCardComponent implements OnInit {
   @Input()
   person: Person;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialogService: DialogService) { }
 
   ngOnInit() {
   }
-
-  openDialog(person: Person) {
-    const dialogRef = this.dialog.open(PersonDialogComponent, {
-      width: '250px',
-      data: person
-    })
-  }
-
 }

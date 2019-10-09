@@ -33,4 +33,8 @@ export class StarwarsApiMoviesService {
       })
     }
   }
+
+  loadMovie(target) {
+    return this.http.get(target);
+  }
 }

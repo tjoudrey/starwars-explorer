@@ -3,6 +3,7 @@ import {Movie} from "../../models/movie";
 import {Planet} from "../../models/planet";
 import {MatDialog} from "@angular/material/dialog";
 import {PlanetDialogComponent} from "../planet-dialog/planet-dialog.component";
+import {DialogService} from "../../services/dialog.service";
 
 @Component({
   selector: 'app-planet-card',
@@ -14,15 +15,9 @@ export class PlanetCardComponent implements OnInit {
   @Input()
   planet: Planet;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialogService: DialogService) { }
 
   ngOnInit() {
   }
 
-  openDialog(planet: Planet) {
-    const dialogRef = this.dialog.open(PlanetDialogComponent, {
-      width: '250px',
-      data: planet
-    })
-  }
 }

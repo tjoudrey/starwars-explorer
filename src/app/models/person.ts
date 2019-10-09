@@ -7,6 +7,8 @@ export class  Person {
   eye_colour: string;
   birth_year: string;
   gender: string;
+  homeworld: string;
+  films: string[] = [];
 
   constructor(data) {
     this.name = data.name;
@@ -17,5 +19,11 @@ export class  Person {
     this.eye_colour = data.eye_colour;
     this.birth_year = data.birth_year;
     this.gender = data.gender;
+    this.homeworld = data.homeworld;
+    if(data.films){
+      for(let i in data.films){
+        this.films.push(data.films[i]);
+      }
+    }
   }
 }

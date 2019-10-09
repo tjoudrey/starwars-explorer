@@ -34,4 +34,8 @@ export class StarwarsApiPlanetsService {
       })
     }
   }
+
+  loadPlanet(target) {
+    return this.http.get(target);
+  }
 }

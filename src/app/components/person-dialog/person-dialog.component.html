@@ -20,4 +20,13 @@
 <label for="mass">Birth Year</label>
 <p id="birth_year">{{person.birth_year}}</p>
 
+  <label for="mass">Homeworld</label>
+  <mat-card class="card" (click)="dialogService.openPlanetDialog(homeworld)">{{homeworld.name}}</mat-card>
+
+  <label for="mass">Films</label>
+  <div *ngFor="let movie of movies">
+    <mat-card (click)="dialogService.openMovieDialog(movie)">{{movie.title}}</mat-card>
+    <br>
+  </div>
+
 </div>
