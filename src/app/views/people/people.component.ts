@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
-import {StarwarsApiService} from "../../services/starwars-api.service";
 import {Person} from "../../models/person";
+import {StarwarsApiPeopleService} from "../../services/starwars-api-people.service";
 
 
 @Component({
@@ -12,10 +12,10 @@ import {Person} from "../../models/person";
 export class PeopleComponent implements OnInit {
   people: Observable<Person[]>;
 
-  constructor(private starwarsAPIService:StarwarsApiService) { }
+  constructor(private apiService:StarwarsApiPeopleService) { }
 
   ngOnInit() {
-    this.people = this.starwarsAPIService.people;
-    this.starwarsAPIService.loadPeople();
+    this.people = this.apiService.people;
+    this.apiService.loadPeople();
   }
 }

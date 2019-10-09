@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {StarwarsApiService} from "../../services/starwars-api.service";
 import {Observable} from "rxjs";
 import {Movie} from "../../models/movie";
+import {StarwarsApiMoviesService} from "../../services/starwars-api-movies.service";
 
 @Component({
   selector: 'app-movie',
@@ -11,10 +11,10 @@ import {Movie} from "../../models/movie";
 export class MovieComponent implements OnInit {
   movies: Observable<Movie[]>;
 
-  constructor(private starwarsAPIService:StarwarsApiService) { }
+  constructor(private apiService:StarwarsApiMoviesService) { }
 
   ngOnInit() {
-    this.movies = this.starwarsAPIService.movies;
-    this.starwarsAPIService.loadMovies();
+    this.movies = this.apiService.movies;
+    this.apiService.loadMovies();
   }
 }

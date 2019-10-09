@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {StarwarsApiService} from "../../services/starwars-api.service";
 import {Observable} from "rxjs";
 import {Planet} from "../../models/planet";
+import {StarwarsApiPlanetsService} from "../../services/starwars-api-planets.service";
 
 @Component({
   selector: 'app-planet',
@@ -11,10 +11,10 @@ import {Planet} from "../../models/planet";
 export class PlanetComponent implements OnInit {
   planets: Observable<Planet[]>;
 
-  constructor(private starwarsAPIService:StarwarsApiService) { }
+  constructor(private apiService: StarwarsApiPlanetsService) { }
 
   ngOnInit() {
-    this.planets = this.starwarsAPIService.planets;
-    this.starwarsAPIService.loadPlanets();
+    this.planets = this.apiService.planets;
+    this.apiService.loadPlanets();
   }
 }
