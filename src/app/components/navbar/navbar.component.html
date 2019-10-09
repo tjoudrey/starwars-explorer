@@ -1,9 +1,11 @@
-<mat-menu #appMenu="matMenu">
-  <ng-template matMenuContent>
-    <button mat-menu-item routerLink="movies">Movies</button>
-    <button mat-menu-item routerLink="people">People</button>
-    <button mat-menu-item routerLink="planets">Planets</button>
-  </ng-template>
-</mat-menu>
-
-<button mat-button [matMenuTriggerFor]="appMenu">Starwars Explorer</button>
+<div class="nav">
+  <mat-menu #appMenu="matMenu">
+    <ng-template matMenuContent class="nav">
+      <button mat-menu-item routerLink="">Home</button>
+      <button mat-menu-item routerLink="movies">Movies</button>
+      <button mat-menu-item routerLink="people">People</button>
+      <button mat-menu-item routerLink="planets">Planets</button>
+    </ng-template>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="appMenu">StarWars Explorer</button>
+</div>
