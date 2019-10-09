@@ -32,6 +32,18 @@ body {
   margin-top: 5em;
 }
 
+.loading {
+  width: 61.8%;
+  margin-left: auto;
+  margin-right: auto;
+  stroke: #218bd3 !important;
+
+}
+
+.mat-spinner::ng-deep circle {
+  stroke: #218bd3 !important;
+}
+
 label {
   font-weight: bold;
 }
