@@ -14,7 +14,6 @@ export class StarwarsApiMoviesService {
   moviesLoaded = false;
   moviesInProgress = false;
 
-
   constructor(private http: HttpClient, private datastoreService: DatastoreService) { }
 
   loadMovies(target: string = 'https://swapi.co/api/films/') {
