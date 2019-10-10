@@ -14,6 +14,7 @@
     <mat-card (click)="dialogService.openPlanetDialog(planet)">{{planet.name}}</mat-card>
     <br>
   </div>
+  <mat-spinner *ngIf="planetLoading"></mat-spinner>
 
   <label *ngIf="characters.length > 0">Characters</label>
   <br>
@@ -21,4 +22,6 @@
     <mat-card (click)="dialogService.openPersonDialog(person)">{{person.name}}</mat-card>
     <br>
   </div>
+  <mat-spinner *ngIf="characterLoading"></mat-spinner>
+
 </mat-dialog-content>

@@ -14,6 +14,7 @@ import { PlanetDialogComponent } from './components/planet-dialog/planet-dialog.
 import {MatDialogModule} from "@angular/material/dialog";
 import { PersonDialogComponent } from './components/person-dialog/person-dialog.component';
 import { MovieDialogComponent } from './components/movie-dialog/movie-dialog.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { MovieDialogComponent } from './components/movie-dialog/movie-dialog.com
     HttpClientModule,
     MatCardModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
 
   ],
   bootstrap: [AppComponent],

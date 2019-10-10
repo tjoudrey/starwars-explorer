@@ -24,6 +24,7 @@
   <br>
   <mat-card (click)="dialogService.openPlanetDialog(homeworld)">{{homeworld.name}}</mat-card>
   <br>
+  <mat-spinner *ngIf="homeworldLoading"></mat-spinner>
 
   <label *ngIf="movies.length > 0">Films</label>
   <br>
@@ -31,4 +32,6 @@
     <mat-card (click)="dialogService.openMovieDialog(movie)">{{movie.title}}</mat-card>
     <br>
   </div>
+  <mat-spinner *ngIf="movieLoading"></mat-spinner>
+
 </mat-dialog-content>

@@ -14,7 +14,9 @@ import {DialogService} from "../../services/dialog.service";
 export class PlanetDialogComponent implements OnInit {
 
   movies: Movie[] = new Array<Movie>();
+  movieLoading = false;
   residents: Person[] = new Array<Person>();
+  residentLoading = false;
 
   constructor(
     public dialogRef: MatDialogRef<PlanetDialogComponent>,
@@ -24,14 +26,18 @@ export class PlanetDialogComponent implements OnInit {
     public dialogService: DialogService) {
 
     for(let i in planet.films) {
+      this.movieLoading = true;
       movieApiService.loadMovie(planet.films[i]).subscribe(data => {
-        this.movies.push(new Movie(data))
+        this.movies.push(new Movie(data));
+        this.movieLoading = false;
       })
     }
 
     for(let i in planet.residents) {
+      this.residentLoading = true;
       peopleApiService.loadPerson(planet.residents[i]).subscribe(data => {
         this.residents.push(new Person(data))
+        this.residentLoading = false;
       })
     }
   }

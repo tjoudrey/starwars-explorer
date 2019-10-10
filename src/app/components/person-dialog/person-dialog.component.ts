@@ -14,7 +14,9 @@ import {Movie} from "../../models/movie";
 export class PersonDialogComponent implements OnInit {
 
   homeworld: Planet;
+  homeworldLoading = false;
   movies: Movie[] = new Array<Movie>();
+  movieLoading = false;
 
   constructor(
     public dialogRef: MatDialogRef<PersonDialogComponent>,
@@ -23,13 +25,17 @@ export class PersonDialogComponent implements OnInit {
     public movieApiService: StarwarsApiMoviesService,
     public dialogService: DialogService) {
 
+    this.homeworldLoading = true;
     planetApiService.loadPlanet(person.homeworld).subscribe(data => {
       this.homeworld = new Planet(data);
+      this.homeworldLoading = false;
     });
 
+    this.homeworldLoading = true;
     for(let i in person.films) {
       movieApiService.loadMovie(person.films[i]).subscribe(data => {
-        this.movies.push(new Movie(data))
+        this.movies.push(new Movie(data));
+        this.homeworldLoading = false;
       })
     }
   }

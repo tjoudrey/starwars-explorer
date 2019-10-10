@@ -12,6 +12,7 @@
     <mat-card (click)="dialogService.openMovieDialog(movie)">{{movie.title}}</mat-card>
     <br>
   </div>
+  <mat-spinner *ngIf="movieLoading"></mat-spinner>
 
   <label *ngIf="residents.length > 0">Residents</label>
   <br>
@@ -19,5 +20,6 @@
     <mat-card (click)="dialogService.openPersonDialog(person)">{{person.name}}</mat-card>
     <br>
   </div>
+  <mat-spinner *ngIf="residentLoading"></mat-spinner>
 
 </mat-dialog-content>

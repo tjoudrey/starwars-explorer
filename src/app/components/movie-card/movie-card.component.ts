@@ -1,8 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Movie} from "../../models/movie";
-import {MatDialog} from "@angular/material/dialog";
-import {PersonDialogComponent} from "../person-dialog/person-dialog.component";
-import {MovieDialogComponent} from "../movie-dialog/movie-dialog.component";
 import {DialogService} from "../../services/dialog.service";
 
 @Component({
