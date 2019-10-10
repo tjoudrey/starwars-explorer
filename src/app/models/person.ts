@@ -20,7 +20,7 @@ export class  Person {
     this.birth_year = data.birth_year;
     this.gender = data.gender;
     this.homeworld = data.homeworld;
-    if(data.films){
+    if(data.films.length > 0){
       for(let i in data.films){
         this.films.push(data.films[i]);
       }

@@ -1,4 +1,4 @@
-<div class="dialog">
+<mat-dialog-content class="dialog">
 
 <h4>{{planet.name}}</h4>
   <hr>
@@ -6,5 +6,18 @@
 <p id="terrain">{{planet.terrain}}</p>
 <label for="population">Population</label>
 <p id="population">{{planet.population}}</p>
+  <label *ngIf="movies.length > 0">Films</label>
+  <br>
+  <div *ngFor="let movie of movies">
+    <mat-card (click)="dialogService.openMovieDialog(movie)">{{movie.title}}</mat-card>
+    <br>
+  </div>
 
-</div>
+  <label *ngIf="residents.length > 0">Residents</label>
+  <br>
+  <div *ngFor="let person of residents">
+    <mat-card (click)="dialogService.openPersonDialog(person)">{{person.name}}</mat-card>
+    <br>
+  </div>
+
+</mat-dialog-content>

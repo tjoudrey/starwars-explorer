@@ -8,6 +8,8 @@ export class Planet {
   climate: string;
   terrain: string;
   surface_water: string;
+  residents: string[] = [];
+  films: string[] = [];
 
   constructor(data) {
     this.name = data.name;
@@ -19,5 +21,15 @@ export class Planet {
     this.climate = data.climate;
     this.terrain = data.terrain;
     this.surface_water = data.surface_water;
+    if(data.residents.length > 0){
+      for(let i in data.residents){
+        this.residents.push(data.residents[i]);
+      }
+    }
+    if(data.films.length > 0){
+      for(let i in data.films){
+        this.films.push(data.films[i]);
+      }
+    }
   }
 }

@@ -4,6 +4,8 @@ export class Movie {
   director: string;
   producer: string;
   release_date: string;
+  characters: string[] = [];
+  planets: string[] = [];
 
   constructor(data) {
     this.title = data.title;
@@ -11,5 +13,15 @@ export class Movie {
     this.director = data.director;
     this.producer = data.producer;
     this.release_date = data.release_date;
+    if(data.characters.length > 0){
+      for(let i in data.characters){
+        this.characters.push(data.characters[i]);
+      }
+    }
+    if(data.planets.length > 0){
+      for(let i in data.planets){
+        this.planets.push(data.planets[i]);
+      }
+    }
   }
 }

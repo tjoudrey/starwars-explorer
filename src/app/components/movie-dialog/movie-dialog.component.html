@@ -1,4 +1,4 @@
-<div class="dialog">
+<mat-dialog-content class="dialog">
   <h4>{{movie.title}}</h4>
   <hr>
     <label for="director">Director</label>
@@ -7,4 +7,18 @@
   <p id="producer">{{movie.producer}}</p>
   <label for="release_date">Release Date</label>
   <p id="release_date">{{movie.release_date}}</p>
-</div>
+
+  <label *ngIf="planets.length > 0">Planets</label>
+  <br>
+  <div *ngFor="let planet of planets">
+    <mat-card (click)="dialogService.openPlanetDialog(planet)">{{planet.name}}</mat-card>
+    <br>
+  </div>
+
+  <label *ngIf="characters.length > 0">Characters</label>
+  <br>
+  <div *ngFor="let person of characters">
+    <mat-card (click)="dialogService.openPersonDialog(person)">{{person.name}}</mat-card>
+    <br>
+  </div>
+</mat-dialog-content>

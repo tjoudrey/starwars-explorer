@@ -34,4 +34,8 @@ export class StarwarsApiPeopleService {
       })
     }
   }
+
+  loadPerson(target) {
+    return this.http.get(target);
+  }
 }
