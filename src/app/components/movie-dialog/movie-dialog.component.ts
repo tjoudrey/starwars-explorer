@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Movie} from "../../models/movie";
 import {StarwarsApiPlanetsService} from "../../services/starwars-api-planets.service";
@@ -18,6 +18,7 @@ export class MovieDialogComponent implements OnInit {
   characterLoading = false;
   planets: Planet[] = Array<Planet>();
   planetLoading = false;
+  innerWidth: number;
 
   constructor(
     public dialogRef: MatDialogRef<MovieDialogComponent>,
@@ -44,6 +45,12 @@ export class MovieDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.innerWidth = window.innerWidth;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
   }
 
   onNoClick(): void {

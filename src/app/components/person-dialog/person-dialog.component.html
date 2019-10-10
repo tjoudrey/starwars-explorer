@@ -1,37 +1,89 @@
-<mat-dialog-content class="dialog">
-
-<h4>{{person.name}}</h4>
+<div *ngIf="innerWidth > 500 ">
+  <h4>{{person.name}}</h4>
   <hr>
-<label for="height">Height</label>
-<p id="height">{{person.height}}cm</p>
+  <mat-grid-list cols="2" rowHeight="34em">
+    <mat-grid-tile>
+      <mat-dialog-content style="height: 34em">
 
-<label for="mass">Mass</label>
-<p id="hair_colour">{{person.mass}}kg</p>
+        <label for="height">Height</label>
+        <p id="height">{{person.height}}cm</p>
 
-<label for="hair_colour">Hair Colour</label>
-<p id="mass">{{person.hair_colour}}</p>
+        <label for="mass">Mass</label>
+        <p id="hair_colour">{{person.mass}}kg</p>
 
-<label for="skin_colour">Skin Colour</label>
-<p id="skin_colour">{{person.skin_colour}}</p>
+        <label for="hair_colour">Hair Colour</label>
+        <p id="mass">{{person.hair_colour}}</p>
 
-<label for="mass">Gender</label>
-<p id="gender">{{person.gender}}</p>
+        <label for="skin_colour">Skin Colour</label>
+        <p id="skin_colour">{{person.skin_colour}}</p>
 
-<label for="mass">Birth Year</label>
-<p id="birth_year">{{person.birth_year}}</p>
+        <label for="mass">Gender</label>
+        <p id="gender">{{person.gender}}</p>
 
-  <label for="mass">Homeworld</label>
-  <br>
-  <mat-card (click)="dialogService.openPlanetDialog(homeworld)">{{homeworld.name}}</mat-card>
-  <br>
-  <mat-spinner *ngIf="homeworldLoading"></mat-spinner>
+        <label for="mass">Birth Year</label>
+        <p id="birth_year">{{person.birth_year}}</p>
 
-  <label *ngIf="movies.length > 0">Films</label>
-  <br>
-  <div *ngFor="let movie of movies">
-    <mat-card (click)="dialogService.openMovieDialog(movie)">{{movie.title}}</mat-card>
+        <label for="mass">Homeworld</label>
+        <br>
+        <mat-card (click)="dialogService.openPlanetDialog(homeworld)">{{homeworld.name}}</mat-card>
+        <br>
+        <mat-spinner *ngIf="homeworldLoading"></mat-spinner>
+      </mat-dialog-content>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-dialog-content style="height: 34em">
+
+        <label *ngIf="movies.length > 0">Films</label>
+        <br>
+        <div *ngFor="let movie of movies">
+          <mat-card (click)="dialogService.openMovieDialog(movie)">{{movie.title}}</mat-card>
+          <br>
+        </div>
+        <mat-spinner *ngIf="movieLoading"></mat-spinner>
+      </mat-dialog-content>
+
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>
+
+<div *ngIf="innerWidth <= 500">
+  <mat-dialog-content class="dialog">
+    <h4>{{person.name}}</h4>
+    <hr>
+    <label for="height">Height</label>
+    <p id="height">{{person.height}}cm</p>
+
+    <label for="mass">Mass</label>
+    <p id="hair_colour">{{person.mass}}kg</p>
+
+    <label for="hair_colour">Hair Colour</label>
+    <p id="mass">{{person.hair_colour}}</p>
+
+    <label for="skin_colour">Skin Colour</label>
+    <p id="skin_colour">{{person.skin_colour}}</p>
+
+    <label for="mass">Gender</label>
+    <p id="gender">{{person.gender}}</p>
+
+    <label for="mass">Birth Year</label>
+    <p id="birth_year">{{person.birth_year}}</p>
+
+    <label for="mass">Homeworld</label>
     <br>
-  </div>
-  <mat-spinner *ngIf="movieLoading"></mat-spinner>
+    <mat-card (click)="dialogService.openPlanetDialog(homeworld)">{{homeworld.name}}</mat-card>
+    <br>
+    <mat-spinner *ngIf="homeworldLoading"></mat-spinner>
 
-</mat-dialog-content>
+    <label *ngIf="movies.length > 0">Films</label>
+    <br>
+    <div *ngFor="let movie of movies">
+      <mat-card (click)="dialogService.openMovieDialog(movie)">{{movie.title}}</mat-card>
+      <br>
+    </div>
+    <mat-spinner *ngIf="movieLoading"></mat-spinner>
+
+  </mat-dialog-content>
+</div>

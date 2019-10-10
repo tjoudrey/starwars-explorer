@@ -15,6 +15,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { PersonDialogComponent } from './components/person-dialog/person-dialog.component';
 import { MovieDialogComponent } from './components/movie-dialog/movie-dialog.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatCardModule,
     MatDialogModule,
     MatProgressSpinnerModule,
+    MatGridListModule,
 
   ],
   bootstrap: [AppComponent],

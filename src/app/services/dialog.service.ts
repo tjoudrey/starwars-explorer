@@ -16,21 +16,21 @@ export class DialogService {
 
   openPlanetDialog(planet: Planet) {
     const dialogRef = this.dialog.open(PlanetDialogComponent, {
-      width: '250px',
+      width: '50%',
       data: planet
     })
   }
 
   openPersonDialog(person: Person) {
     const dialogRef = this.dialog.open(PersonDialogComponent, {
-      width: '250px',
+      width: '50%',
       data: person
     })
   }
 
   openMovieDialog(movie: Movie) {
     const dialogRef = this.dialog.open(MovieDialogComponent, {
-      width: '250px',
+      width: '50%',
       data: movie
     })
   }
